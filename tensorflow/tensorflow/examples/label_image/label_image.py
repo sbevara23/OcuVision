@@ -135,6 +135,9 @@ if __name__ == "__main__":
 
   top_k = results.argsort()[-5:][::-1]
   labels = load_labels(label_file)
-  print(top_k)
-  for i in top_k:
-    print(labels[i], results[i])
+  final = ""
+  final += labels[top_k[0]]
+  print(final.strip("\n").replace("\n", ""))
+  #print(top_k)
+  #for i in top_k:
+    #print(labels[i], results[i])
