@@ -137,7 +137,9 @@ if __name__ == "__main__":
   labels = load_labels(label_file)
   final = ""
   final += labels[top_k[0]]
-  print(final.strip("\n").replace("\n", ""))
-  #print(top_k)
-  #for i in top_k:
-    #print(labels[i], results[i])
+  print(final.strip("\n").replace("\n", "").rstrip('\n'))
+  f = open("labels.txt", "w")
+  f.write(str(top_k))
+  for i in top_k:
+    f.write(str(labels[i]) + str(results[i]))
+  f.close()

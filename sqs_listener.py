@@ -32,8 +32,7 @@ while (True):
 
         #highest = os.system('./tensorflow/classify.sh')
         highest = os.popen('./tensorflow/classify.sh').read()
-        print(highest)
-
+        print(highest.rstrip("\n"))
         response = sqs.send_message(
             QueueUrl=objects_url,
             MessageBody=highest,
